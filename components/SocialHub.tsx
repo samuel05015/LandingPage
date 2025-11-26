@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Instagram, Twitter, MessageCircle } from 'lucide-react';
 import { CTA_LINK } from '../types';
+import { ImageWithLoad } from './ImageWithLoad';
 
 // Custom TikTok icon since Lucide doesn't have a perfect match often
 const TikTokIcon = () => (
@@ -19,18 +20,22 @@ const socialImages = [
 
 export const SocialHub: React.FC = () => {
   return (
-    <section id="social" className="py-24 bg-white">
+    <section id="social" className="py-24 bg-white dark:bg-slate-900 transition-colors duration-500">
       <div className="max-w-4xl mx-auto px-4 text-center">
-        <h2 className="text-3xl font-bold text-slate-900 mb-2">Junte-se à Comunidade <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-violet-600">#GlowyApp</span></h2>
-        <p className="text-slate-600 mb-12">Siga-nos para inspirações diárias e compartilhe seu glow.</p>
+        <h2 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-white mb-2 transition-colors duration-500">Junte-se à Comunidade <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-violet-600">#GlowyApp</span></h2>
+        <p className="text-slate-600 dark:text-slate-400 mb-12 transition-colors duration-500 text-balance">Siga-nos para inspirações diárias e compartilhe seu glow.</p>
 
         {/* Mock Instagram Feed */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-2 mb-12">
           {socialImages.map((src, idx) => (
-            <div key={idx} className="aspect-square relative group overflow-hidden bg-slate-100 rounded-md cursor-pointer">
-              <img src={src} alt="Community post" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+            <div key={idx} className="aspect-square relative group overflow-hidden bg-slate-100 dark:bg-slate-800 rounded-xl cursor-pointer">
+              <ImageWithLoad 
+                src={src} 
+                alt="Community post" 
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
+              />
               <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                <Instagram className="text-white" />
+                <Instagram className="text-white drop-shadow-lg" />
               </div>
             </div>
           ))}
@@ -48,7 +53,7 @@ export const SocialHub: React.FC = () => {
                 href={CTA_LINK}
                 icon={<TikTokIcon />} 
                 label="TikTok" 
-                className="bg-black text-white shadow-lg shadow-slate-900/20 hover:bg-slate-800"
+                className="bg-black text-white shadow-lg shadow-slate-900/20 hover:bg-slate-800 dark:hover:bg-slate-700 dark:border dark:border-slate-800"
             />
              <SocialLink 
                 href={CTA_LINK}
@@ -60,7 +65,7 @@ export const SocialHub: React.FC = () => {
                 href={CTA_LINK}
                 icon={<Twitter className="w-5 h-5" />} 
                 label="Twitter" 
-                className="bg-black text-white shadow-lg shadow-slate-900/20 hover:bg-slate-800"
+                className="bg-black text-white shadow-lg shadow-slate-900/20 hover:bg-slate-800 dark:hover:bg-slate-700 dark:border dark:border-slate-800"
             />
         </div>
       </div>

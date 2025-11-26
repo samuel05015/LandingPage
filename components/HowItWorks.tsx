@@ -25,16 +25,16 @@ const steps = [
 
 export const HowItWorks: React.FC = () => {
   return (
-    <section className="py-20 bg-white relative overflow-hidden">
+    <section className="py-20 bg-white dark:bg-slate-900 relative overflow-hidden transition-colors duration-500">
       {/* Decorative Line */}
-      <div className="absolute top-1/2 left-0 w-full h-px bg-gradient-to-r from-transparent via-pink-200 to-transparent hidden md:block" />
+      <div className="absolute top-1/2 left-0 w-full h-px bg-gradient-to-r from-transparent via-pink-200 dark:via-pink-900/30 to-transparent hidden md:block" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16">
-          <span className="text-sm font-semibold text-violet-600 tracking-wider uppercase bg-violet-50 px-3 py-1 rounded-full">
+          <span className="text-sm font-semibold text-violet-600 dark:text-violet-400 tracking-wider uppercase bg-violet-50 dark:bg-violet-900/20 px-3 py-1 rounded-full">
             Passo a Passo
           </span>
-          <h2 className="mt-4 text-3xl font-bold text-slate-900 sm:text-4xl">
+          <h2 className="mt-4 text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl transition-colors duration-500">
             Como o Glowy funciona
           </h2>
         </div>
@@ -47,17 +47,17 @@ export const HowItWorks: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.2 }}
-              className="relative flex flex-col items-center text-center"
+              className="relative flex flex-col items-center text-center group"
             >
-              <div className="w-20 h-20 rounded-full bg-white border-4 border-pink-50 shadow-xl flex items-center justify-center mb-6 relative z-10 group transition-transform hover:scale-110 duration-300">
-                <step.icon size={32} className="text-slate-700 group-hover:text-pink-500 transition-colors" />
-                <div className="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-gradient-to-r from-pink-500 to-violet-600 flex items-center justify-center text-white font-bold text-sm">
+              <div className="w-20 h-20 rounded-full bg-white dark:bg-slate-800 border-4 border-pink-50 dark:border-slate-700 shadow-xl flex items-center justify-center mb-6 relative z-10 group-hover:scale-110 group-hover:border-pink-200 dark:group-hover:border-pink-900/50 transition-all duration-300">
+                <step.icon size={32} className="text-slate-700 dark:text-slate-200 group-hover:text-pink-500 dark:group-hover:text-pink-400 transition-colors" />
+                <div className="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-gradient-to-r from-pink-500 to-violet-600 flex items-center justify-center text-white font-bold text-sm shadow-md">
                   {step.id}
                 </div>
               </div>
               
-              <h3 className="text-xl font-bold text-slate-900 mb-3">{step.title}</h3>
-              <p className="text-slate-500 leading-relaxed max-w-xs mx-auto">
+              <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3 transition-colors duration-500">{step.title}</h3>
+              <p className="text-slate-500 dark:text-slate-400 leading-relaxed max-w-xs mx-auto transition-colors duration-500 text-balance">
                 {step.description}
               </p>
             </motion.div>

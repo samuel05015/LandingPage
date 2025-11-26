@@ -23,9 +23,9 @@ const faqs: FaqItem[] = [
 
 export const FAQ: React.FC = () => {
   return (
-    <section className="py-24 bg-slate-50">
+    <section className="py-24 bg-slate-50 dark:bg-slate-950 transition-colors duration-500">
       <div className="max-w-3xl mx-auto px-4 sm:px-6">
-        <h2 className="text-3xl font-bold text-center text-slate-900 mb-12">Perguntas Frequentes</h2>
+        <h2 className="text-3xl font-bold text-center text-slate-900 dark:text-white mb-12 transition-colors duration-500">Perguntas Frequentes</h2>
         <div className="space-y-4">
           {faqs.map((faq) => (
             <AccordionItem key={faq.id} item={faq} />
@@ -40,17 +40,17 @@ const AccordionItem: React.FC<{ item: FaqItem }> = ({ item }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+    <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 overflow-hidden shadow-sm hover:shadow-md transition-all duration-300">
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="w-full px-6 py-4 flex items-center justify-between text-left"
       >
-        <span className="font-semibold text-slate-800">{item.question}</span>
+        <span className="font-semibold text-slate-800 dark:text-slate-100 transition-colors duration-300">{item.question}</span>
         <motion.div
           animate={{ rotate: isOpen ? 180 : 0 }}
           transition={{ duration: 0.2 }}
         >
-          <ChevronDown className="text-slate-400" />
+          <ChevronDown className="text-slate-400 dark:text-slate-500" />
         </motion.div>
       </button>
       <AnimatePresence>
@@ -61,7 +61,7 @@ const AccordionItem: React.FC<{ item: FaqItem }> = ({ item }) => {
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3 }}
           >
-            <div className="px-6 pb-6 text-slate-600 leading-relaxed border-t border-slate-100 pt-4">
+            <div className="px-6 pb-6 text-slate-600 dark:text-slate-400 leading-relaxed border-t border-slate-100 dark:border-slate-800 pt-4 transition-colors duration-300">
               {item.answer}
             </div>
           </motion.div>

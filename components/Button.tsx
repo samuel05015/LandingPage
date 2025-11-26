@@ -23,8 +23,8 @@ export const Button: React.FC<ButtonProps> = ({
   
   const variants = {
     primary: "bg-gradient-to-r from-pink-500 to-violet-600 text-white shadow-lg shadow-pink-500/30 hover:shadow-pink-500/50 hover:brightness-110",
-    outline: "bg-transparent border-2 border-slate-200 text-slate-700 hover:border-violet-500 hover:text-violet-600",
-    ghost: "bg-transparent text-slate-600 hover:text-pink-500 hover:bg-pink-50"
+    outline: "bg-transparent border-2 border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:border-violet-500 dark:hover:border-violet-500 hover:text-violet-600 dark:hover:text-violet-400",
+    ghost: "bg-transparent text-slate-600 dark:text-slate-400 hover:text-pink-500 dark:hover:text-pink-400 hover:bg-pink-50 dark:hover:bg-pink-900/10"
   };
 
   const Component = motion.a;
